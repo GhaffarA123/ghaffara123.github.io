@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Sidebar loads dynamically -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <h2>Portfolio Website</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+    </main>
+
+  </div>
+
+  <!-- Sidebar Loader -->
+  <!-- Sidebar Loader Script goes here -->
+  <script>
+    fetch("../sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+
+        // Highlight Showcase if we're on homepage
+        const currentPath = window.location.pathname.split("/").pop();
+        if (currentPath === "index.html" || currentPath === "") {
+          document.querySelector(".showcase-link").classList.add("active");
+        }
+      });
+  </script>
+</body>
+
+</html>

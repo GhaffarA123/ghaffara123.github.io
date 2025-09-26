@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+      <div class="showcase-container">
+
+        <!-- About Me Section -->
+        <section class="about-me">
+          <h2>About Me</h2>
+          <p>
+            Hi, I’m Ghaffar  — a passionate Networking specialist who loves
+            building clean, functional, network applications.
+            I enjoy working with modern technologies, solving problems, and
+            turning ideas into reality.
+          </p>
+        </section>
+
+        <!-- Showcase Section -->
+        <h2 class="section-title">Showcase</h2>
+        <div id="showcase" class="cube-grid">
+          <!-- COPY AND PASTED THE DIV -->
+          <div class="cube"><h3>Portfolio Website</h3><p>Personal portfolio built with HTML/CSS/JS</p><a href="entries/portfolio-website.html">View</a></div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button id="prev">⬅ Prev</button>
+          <span id="page-info"></span>
+          <button id="next">Next ➡</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Sidebar Loader -->
+  <script>
+    fetch("sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("sidebar-container").innerHTML = data;
+        document.querySelector(".showcase-link").classList.add("active");
+      });
+  </script>
+
+  <script src="pagination.js"></script>
+</body>
+</html>
+
